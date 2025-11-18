@@ -1,11 +1,11 @@
 /* algorithms: Kruskal */
 // MST of an Undigraph
-import { MinPriorityQueue  } from "datastructures-js";
+import { MinPriorityQueue  } from 'datastructures-js';
 
 class Kruskal {
     mst(n: number, edges: number[][]): number[][] {
         const par = Array.from({ length: n }, (_, i) => i);
-        const rank = new Array<number>(n).fill(0);
+        const rank = new Array(n).fill(0);
 
         const find = (i: number): number => {
             if (par[i] != i)

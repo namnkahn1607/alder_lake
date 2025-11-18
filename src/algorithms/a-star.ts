@@ -3,7 +3,7 @@
 import { MinPriorityQueue } from 'datastructures-js';
 
 class Astar {
-    shortestPath(mat: number[][]): number {
+    shortestPath(mat: Array<Array<number>>): number {
         const len = mat.length;
         const dirs = [[-1, 0], [0, -1], [1, 0], [0, 1]];
 
@@ -20,7 +20,7 @@ class Astar {
                 return g + heuristic([R, C]);
             }
         );
-        opened.enqueue([0, 0]);
+        opened.enqueue([0, 0, 0]);
 
         const gCost = new Map<string, number>();
         gCost.set('0,0', 0);
