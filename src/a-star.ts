@@ -1,5 +1,5 @@
 /* advanced algorithms: A* Search */
-// @: shortest path in Matrix
+// shortest path in Matrix
 import { MinPriorityQueue } from 'datastructures-js';
 
 class Astar {
@@ -57,10 +57,7 @@ class Astar {
         return -1;
     }
 
-    public static main(): void {
-        const dist = new Astar().shortestPath([[0]]);
-        console.log(dist);
-    }
+    public static main(): void {}
 }
 
 Astar.main();
