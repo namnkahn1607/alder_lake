@@ -3,10 +3,10 @@ import { BurgerStore } from './burger-store';
 import { CheeseBurger, DeluxeCheeseBurger, VeganBurger } from './concrete-burger';
 
 class CheeseBurgerStore extends BurgerStore {
-    createBurger(type: string): Burger {
+    createBurger(type: BurgerType): Burger {
         switch(type) {
-            case BurgerType.CHEESE: return new CheeseBurger();
-            case BurgerType.DELUXE_CHEESE: return new DeluxeCheeseBurger();
+            case 'CHEESE': return new CheeseBurger();
+            case 'DELUXE_CHEESE': return new DeluxeCheeseBurger();
             default:
                 throw new Error('Unknown CheeseBurger');
         }
@@ -14,8 +14,8 @@ class CheeseBurgerStore extends BurgerStore {
 }
 
 class VeganBurgerStore extends BurgerStore {
-    createBurger(type: string): Burger {
-        if (type == BurgerType.VEGAN) {
+    createBurger(type: BurgerType): Burger {
+        if (type == 'VEGAN') {
             return new VeganBurger();
         }
 
@@ -23,9 +23,11 @@ class VeganBurgerStore extends BurgerStore {
     }
 }
 
+/* You can absolutely implement more BurgerStore */
+
 // Client code
-const burger1 = new CheeseBurgerStore().createBurger('DELUXECHEESE');
+const burger1 = new CheeseBurgerStore().orderBurger('DELUXE_CHEESE');
 console.log(burger1);
 
-const burger2 = new VeganBurgerStore().createBurger('VEGAN');
+const burger2 = new VeganBurgerStore().orderBurger('VEGAN');
 console.log(burger2);

@@ -24,4 +24,6 @@ class VeganBurger extends Burger {
     serve(): void {}
 }
 
+/* and yes... more Burgers = more concrete classes */
+
 export { CheeseBurger, DeluxeCheeseBurger, VeganBurger };

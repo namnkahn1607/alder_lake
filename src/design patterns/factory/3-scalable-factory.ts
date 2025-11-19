@@ -25,4 +25,4 @@ class ScalableBurgerFactory {
     }
 }
 
-export {};
+export { ScalableBurgerFactory };
