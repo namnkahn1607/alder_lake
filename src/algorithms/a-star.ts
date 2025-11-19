@@ -1,5 +1,5 @@
 /* advanced algorithms: A* Search */
-// shortest path in Matrix
+// shortest mincost path in Matrix
 import { MinPriorityQueue } from 'datastructures-js';
 
 class Astar {
@@ -39,7 +39,8 @@ class Astar {
                 const [newR, newC] = [R + dR, C + dC];
                 const neiKey = `${newR},${newC}`;
 
-                if (newR < 0 || newR >= len || newC < 0 || newC >= len)
+                if (newR < 0 || newR >= len || 
+                    newC < 0 || newC >= len)
                     continue;
 
                 if (mat[newR][newC] != 0)
