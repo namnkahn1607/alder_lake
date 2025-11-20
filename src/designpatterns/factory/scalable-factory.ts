@@ -1,4 +1,4 @@
-import { Burger } from './1-burger';
+import { Burger } from './burger';
 
 type BurgerConstructor = new () => Burger;
 

@@ -1,4 +1,4 @@
-import { Burger } from './1-burger';
+import { Burger } from './burger';
 
 // all Burgers implements an interface
 class CheeseBurger implements Burger {
