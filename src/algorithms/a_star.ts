@@ -12,7 +12,7 @@ class Astar {
 
         const heuristic = (pos: number[]) => {
             return 2 * len - 2 - pos[0] - pos[1];
-        }
+        };
 
         const opened = new MinPriorityQueue<number[]>(
             item => {
