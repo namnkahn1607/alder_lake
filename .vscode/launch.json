@@ -2,6 +2,13 @@
     "version": "0.2.0",
     "configurations": [
         {
+            "type": "java",
+            "name": "Hello",
+            "request": "launch",
+            "mainClass": "Hello",
+            "projectName": "algorithms_4ab5603f"
+        },
+        {
             "name": "(gdb) Launch",
             "type": "cppdbg",
             "request": "launch",
@@ -20,7 +27,7 @@
                     "ignoreFailures": true
                 }
             ],
-            "preLaunchTask": "build" // <--- Updated to match tasks.json
+            "preLaunchTask": "build"
         },
         {
             "name": "Debug Current TS File",
@@ -29,7 +36,7 @@
             "program": "${file}",
             "runtimeArgs": [
                 "-r",
-                "ts-node/register" // Registers the TS compiler for this run
+                "ts-node/register"
             ],
             "skipFiles": [
                 "<node_internals>/**"
