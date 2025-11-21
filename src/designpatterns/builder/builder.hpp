@@ -1,20 +1,26 @@
 #pragma once
 
 #include "meal.hpp"
+#include <memory>
 
 class Builder {
 protected:
-    Meal meal;
-
-    Builder(Meal _meal) : meal(_meal) {}
+    std::unique_ptr<Meal> meal;
 
 public:
-    virtual Builder* addStarter();
-    virtual Builder* addMain();
-    virtual Builder* addDessert();
-    virtual Builder* addDrink();
+    Builder() { reset(); }
+    virtual ~Builder() = default;
+
+    void reset() {
+        meal = std::make_unique<Meal>();
+    }
+
+    virtual Builder& addStarter() = 0;
+    virtual Builder& addMain() = 0;
+    virtual Builder& addDessert() = 0;
+    virtual Builder& addDrink() = 0;
     
-    Meal build() {
-        return meal;
+    std::unique_ptr<Meal> build() {
+        return std::move(meal);
     }
 };

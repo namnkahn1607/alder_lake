@@ -1,12 +1,17 @@
-#include "healthy_builder.hpp"
-#include "vegan_builder.hpp"
+#include "concrete_builder.hpp"
 
 class Director {
-    void constructHealthyMeal(HealthyBuilder* builder) {
-        builder->addMain()->addMain()->addDessert()->addDrink();
-    }
-
-    void constructVeganMeal(VeganBuilder* builder) {
-        builder->addMain()->addMain()->addDessert()->addDrink();
+public:
+    static void constructMeal(Builder& builder) {
+        builder.addStarter().addMain().addDessert().addDrink();
     }
 };
+
+int main() {
+    VeganBuilder veganBuilder;
+
+    Director::constructMeal(veganBuilder);
+    std::unique_ptr<Meal> veganMeal = veganBuilder.build();
+    
+    return 0;
+}
