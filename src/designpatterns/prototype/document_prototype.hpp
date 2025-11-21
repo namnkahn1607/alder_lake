@@ -1,8 +1,11 @@
 #pragma once
 
-class IDocumentPrototype {
-public:
-    IDocumentPrototype* cloneDocument();
+#include <memory>
 
-    void display();
+class DocumentPrototype {
+public:
+    virtual ~DocumentPrototype() = default;
+
+    virtual std::unique_ptr<DocumentPrototype> clone() const = 0;
+    virtual void display() const = 0;
 };

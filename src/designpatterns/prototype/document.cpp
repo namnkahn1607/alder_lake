@@ -8,7 +8,7 @@
 #define cout std::cout
 #define endl std::endl
 
-class Document : public IDocumentPrototype {
+class Document : public DocumentPrototype {
 private:
     string content;
     vector<string> images;
@@ -17,36 +17,28 @@ private:
 
 public:
     Document(
-        string _content,
-        vector<string> _images,
-        string _format,
-        vector<string> _annotations
-    ) : content(_content), format(_format) {
-        images = vector<string>(begin(_images), end(images));
-        annotations = vector<string>(begin(_annotations), end(_annotations));
-    }
+        string c, vector<string> i,
+        string f, vector<string> a
+    ) : content(std::move(c)), images(std::move(i)), 
+        format(std::move(f)), annotations(std::move(a)) {}
 
-    void addImage(string image) {
+    void addImage(const string& image) {
         images.push_back(image);
     }
+    
+    void addAnnotation(const string& annotation) {
+        annotations.push_back(annotation);
+    }
 
-    IDocumentPrototype* cloneDocument() {
-        return new Document(content, images, format, annotations);
+    std::unique_ptr<DocumentPrototype> clone() const override {
+        return std::make_unique<Document>(*this);
     }
 
     void display() {
-        cout << "Content: " << content << endl;
-        cout << "Images: " << endl;
-        
-        for (auto& image : images) {
-            cout << image << endl;
-        }
-
-        cout << "Formatter: " << format << endl;
-        cout << "Annotations: " << endl;
-
-        for (auto& annotation : annotations) {
-            cout << annotation << endl;
-        }
+        cout << "Content: " << content << "\n"
+             << "Format: " << format << "\n"
+             << "Images: " << images.size() << " attached.\n"
+             << "Annotations: " << annotations.size() << " attached.\n"
+             << "------------------------" << endl;
     }
 };
