@@ -4,9 +4,13 @@ import { Beverage, LightRoast } from "./beverage.ts";
  * Decorate prefers Composition over Inheritance to avoid the
  * Diamond problem - which is tricky.
  * Inheritance allows error to be 'inheritable'.
+ * Abstract Decorator will inherits Abstract Component, why?
+ * -> enabling multi-layer Decorators - it can be wrapped by
+ * another Decorator.
+ * -> interchangable with Component.
  */
-abstract class BeverageDecorator {
-    constructor(protected beverage: Beverage) {}
+abstract class BeverageDecorator extends Beverage {
+    constructor(protected beverage: Beverage) { super(); }
 }
 
 /** CONCRETE DECORATOR
