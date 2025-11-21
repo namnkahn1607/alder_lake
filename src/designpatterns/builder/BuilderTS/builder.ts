@@ -1,5 +1,8 @@
-import { Meal } from './meal';
+import { Meal } from './meal.ts';
 
+/** ABSTRACT/INTERFACE BUILDER
+ * sketch out the construction process in details
+ */
 abstract class Builder {
     constructor(protected meal = new Meal()) {}
 
@@ -7,8 +10,21 @@ abstract class Builder {
     abstract addMain(): Builder;
     abstract addDessert(): Builder;
     abstract addDrink(): Builder;
+
+    build(): Meal {
+        return this.meal;
+    }
+
+    toString(): string {
+        return `${this.meal}`;
+    }
 }
 
+/** CONCRETE BUILDER
+ * Each Builder is reponsible for a Product type.
+ * One can choose single value among type's domain, or
+ * can even omit the type entirely.
+ */
 class HealthyBuilder extends Builder {
     addStarter(): Builder {
         this.meal.setStart('SOUP');
@@ -53,4 +69,6 @@ class VeganBuilder extends Builder {
     }
 }
 
-export { HealthyBuilder, VeganBuilder };
+// more Concrete Builder here...
+
+export { Builder, HealthyBuilder, VeganBuilder };

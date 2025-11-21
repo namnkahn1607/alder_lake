@@ -1,15 +1,24 @@
-import { HealthyBuilder, VeganBuilder } from "./builder";
+import { Builder, HealthyBuilder, VeganBuilder } from "./builder.ts";
 
+/** DIRECTOR 
+ * Single-responsible Client-side 'interface' for 
+ * Client code to interact with.
+ */
 class Director {
-    constructHealthyMeal(builder: HealthyBuilder) {
-        builder.addStarter().addMain().addDessert().addDrink();
+    static constructMeal(build: Builder) {
+        build.addStarter().addMain().addDessert().addDrink();
     }
-
-    constructVeganMeal(builder: VeganBuilder) {
-        builder.addStarter().addMain().addDessert().addDrink();
-    }
-
-    // establish more combinations here...
 }
+
+// Client code
+const healthyBuilder = new HealthyBuilder();
+Director.constructMeal(healthyBuilder);
+const healthyMeal = healthyBuilder.build();
+
+const veganBuilder = new VeganBuilder();
+Director.constructMeal(veganBuilder);
+const veganMeal = veganBuilder.build();
+
+console.log(healthyMeal, veganMeal);
 
 export { Director };
