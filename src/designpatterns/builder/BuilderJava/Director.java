@@ -1,12 +1,16 @@
 package designpatterns.builder.BuilderJava;
 
 public class Director {
-
-    void constructHealthyMeal(HealthyBuilder builder) {
+    
+    static void constructMeal(Builder builder) {
         builder.addStarter().addMain().addDessert().addDrink();
     }
 
-    void constructVeganMeal(VeganBuilder builder) {
-        builder.addStarter().addMain().addDessert().addDrink();
-    } 
+    public static void main(String[] args) {
+        Builder veganBuilder = new VeganBuilder();
+        Director.constructMeal(veganBuilder);
+
+        Meal veganMeal = veganBuilder.build();
+        System.out.println(veganMeal);
+    }
 }
