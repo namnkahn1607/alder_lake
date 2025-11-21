@@ -1,5 +1,10 @@
-import type { DocumentPrototype } from './document_prototype';
+import type { DocumentPrototype } from './document_prototype.ts';
 
+/** CONCRETE PROTOTYPE
+ * implements the Prototype Interface, therefore defining
+ * cloning logic to instantiate new instances (shallow 
+ * clone or deep clone based on context).
+ */
 class Document implements DocumentPrototype {
     constructor(
         private content: string,
