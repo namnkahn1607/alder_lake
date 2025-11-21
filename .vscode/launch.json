@@ -3,9 +3,9 @@
     "configurations": [
         {
             "type": "java",
-            "name": "Hello",
+            "name": "LoggerAdapter",
             "request": "launch",
-            "mainClass": "Hello",
+            "mainClass": "designpatterns.adapter.AdapterJava.LoggerAdapter",
             "projectName": "algorithms_4ab5603f"
         },
         {
@@ -30,19 +30,21 @@
             "preLaunchTask": "build"
         },
         {
-            "name": "Debug Current TS File",
+            "name": "Debug Current File (TSX)",
             "type": "node",
             "request": "launch",
             "program": "${file}",
+            "runtimeExecutable": "node",
             "runtimeArgs": [
-                "-r",
-                "ts-node/register"
+                "--import",
+                "tsx"
             ],
             "skipFiles": [
                 "<node_internals>/**"
             ],
             "cwd": "${workspaceFolder}",
-            "internalConsoleOptions": "openOnSessionStart"
+            "console": "integratedTerminal",
+            "internalConsoleOptions": "neverOpen"
         }
     ]
 }

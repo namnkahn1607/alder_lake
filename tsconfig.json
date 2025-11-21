@@ -1,19 +1,26 @@
 {
   "compilerOptions": {
-    "target": "es2022",
-    "module": "ESNext",
-    "lib": ["ES2020", "DOM", "DOM.Iterable"],
-    "types": [],
-    "useDefineForClassFields": true,
-    "moduleResolution": "bundler",
+    /* Base Options */
+    "target": "ES2022",
+    "module": "NodeNext",
+    "moduleResolution": "NodeNext",
     "esModuleInterop": true,
-    "forceConsistentCasingInFileNames": true,
-    "strict": true,
     "skipLibCheck": true,
-    "resolveJsonModule": true,
-    "isolatedModules": true,
-    "outDir": "dist",
+    "forceConsistentCasingInFileNames": true,
+    /* Strictness */
+    "strict": true,
+    "verbatimModuleSyntax": true, /* Modern replacement for isolatedModules */
+
+    /* Build Output */
+    "outDir": "./dist",
+    "rootDir": "./src",
+    "sourceMap": true,       /* Essential for Debugging */
+
+    /* Path Resolution */
+    /* This allows VS Code to recognize imports without extensions, 
+       even though Node requires them nicely. tsx bridges this gap. */
+    "allowImportingTsExtensions": true,
     "noEmit": true
   },
-  "include": ["src"]
+  "include": ["src/**/*"]
 }

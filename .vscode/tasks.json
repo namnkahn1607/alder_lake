@@ -40,17 +40,29 @@
             "detail": "Compiles and runs the executable immediately."
         },
         {
-            "label": "ts-node_exec",
+            "label": "Run Current File (TSX)",
             "type": "shell",
-            "command": "ts-node", 
+            "command": "./node_modules/.bin/tsx",
             "args": [
                 "${file}"
             ],
             "group": {
-                "kind": "test",
-                "isDefault": false
+                "kind": "build",
+                "isDefault": true
             },
-            "problemMatcher": ["$tsc"]
+            "presentation": {
+                "reveal": "always",
+                "panel": "shared"
+            },
+            "problemMatcher": []
+        },
+            {
+            "label": "Type Check Only",
+            "type": "shell",
+            "command": "./node_modules/.bin/tsc",
+            "args": ["--noEmit"],
+            "group": "build",
+            "problemMatcher": "$tsc"
         }
     ]
 }
