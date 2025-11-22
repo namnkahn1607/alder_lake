@@ -1,6 +1,4 @@
-/** ADAPTEE
- * The old (legacy) system that need to adapt to new changes.
- */
+/* ADAPTEE */
 class XMLLogger {
     log(XMLMessage: string): void {
         console.log(XMLMessage);

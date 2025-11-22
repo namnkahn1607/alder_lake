@@ -1,6 +1,4 @@
-/** TARGET
- * Interface where the new system adheres to.
- */
+/* TARGET */
 interface JSONLogger {
     logMessage(message: string): void;
 }

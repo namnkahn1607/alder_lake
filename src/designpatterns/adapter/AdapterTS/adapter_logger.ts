@@ -2,11 +2,6 @@
 import type { JSONLogger } from './json_logger.ts';
 import { XMLLogger } from './xml_logger.ts';
 
-/**
- * Adapter that bridges between ADAPTEE & TARGET, specifically
- * wraps around the ADAPTEE.
- * This is where the code logic promoting adaptablity is placed.
- */
 class LoggerAdapter implements JSONLogger {
     constructor(private legacyLogger: XMLLogger) {}
 
