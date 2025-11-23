@@ -1,3 +1,7 @@
+/** CAUTIOUS:
+ * We don't need Singleton class in JS/TS, since we can create
+ * global object and pass around its reference.
+ */
 class PrintService {
     private static instancePromise: Promise<PrintService> | null = null;
     private queue = Array<string>();
