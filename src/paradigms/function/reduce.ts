@@ -1,4 +1,4 @@
-import * as Map from "./map.ts"
+import * as Map from './map.ts';
 
 const composeSchedules = <A, B, C>(
     f: Map.Schedule<A, B>,
