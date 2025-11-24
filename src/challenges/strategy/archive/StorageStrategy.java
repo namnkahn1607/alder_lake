@@ -1,6 +1,6 @@
 package challenges.strategy.archive;
 
-/* INTERFACE */
+/* STRATEGY INTERFACE */
 public interface StorageStrategy {
     void store(byte[] data, DiskAllocator allocator);
 }
