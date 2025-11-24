@@ -1,4 +1,4 @@
-import { Burger } from './burger';
+import type { Burger } from './burger.ts';
 
 type BurgerConstructor = new () => Burger;
 

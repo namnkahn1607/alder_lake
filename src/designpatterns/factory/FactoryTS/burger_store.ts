@@ -1,6 +1,6 @@
-import { Burger } from './burger';
-import type { BurgerType } from './burger';
-import { CheeseBurger, DeluxeCheeseBurger, VeganBurger } from './burger';
+import { Burger } from './burger.ts';
+import type { BurgerType } from './burger.ts';
+import { CheeseBurger, DeluxeCheeseBurger, VeganBurger } from './burger.ts';
 
 abstract class BurgerStore {
     /**
