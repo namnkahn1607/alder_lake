@@ -1,3 +1,8 @@
+/** SUBJECT INTERFACE
+ * multiple Subject(s) can exist in a program, so setting
+ * out a standard way to add, remove, notify subscriber
+ * is crucial.
+ */
 interface Subject {
     attach(observer: Observer): void;
     
@@ -6,11 +11,19 @@ interface Subject {
     notify(): void;
 }
 
+/** CONCRETE SUBJECT
+ * holding internal state data for Observers to watch.
+ */
 class ConcreteSubject implements Subject {
+    /** Subject's Internal State
+     * - All Observers are 'watching' this state.
+     */
     public state: number = 1;
-    private observers = new Array<Observer>()
+    private observers = new Array<Observer>();
 
+    // Observer sign up
     attach(observer: Observer): void {
+        /* Ensure single Observer instance only! */
         const isExist = this.observers.includes(observer);
 
         if (isExist) {
@@ -23,7 +36,9 @@ class ConcreteSubject implements Subject {
         console.log('[Subject] Attached given Observer');
     }
     
+    // Observer sign out
     detach(observer: Observer): void {
+        /* Okay since there exists only one instance of Observer */
         const observerIdx = this.observers.indexOf(observer);
 
         if (observerIdx == -1) {
@@ -36,6 +51,7 @@ class ConcreteSubject implements Subject {
         console.log('[Subject] Detached given Observer');
     }
     
+    // Notify all Observer(s) a change in Subjects
     notify(): void {
         console.log('[Subject] Notifying Observers...');
 
@@ -46,6 +62,7 @@ class ConcreteSubject implements Subject {
         console.log('[Subject] Done\n');
     } 
 
+    /* Bussiness logic that modify the internal state */
     doSth(): void {
         console.log('[Subject] About to do significant changes');
         this.state *= 2;
@@ -55,10 +72,19 @@ class ConcreteSubject implements Subject {
     }
 }
 
+/** OBSERVER INTERFACE
+ * - There could be multiple type of classes that are
+ * interested in the Subject, so we make them implement
+ * the same Interface to receive the update in Subject.
+ */
 interface Observer {
     update(subject: Subject): void;
 }
 
+/** CONCRETE OBSERVER
+ * may be distinct in functionalities, but same in the way
+ * of getting updates from Subject.
+ */
 class ConcreteObserverA implements Observer {
     update(subject: Subject): void {
         if (subject instanceof ConcreteSubject &&
