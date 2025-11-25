@@ -32,9 +32,11 @@ class Editor {
             editor.openFile('test.txt');
             editor.saveFile();
         } catch (error) {
-            console.error('An error occured', error);
+            console.error('An error occured:', error);
         }
     }
 }
+
+Editor.main();
 
 export { Editor };

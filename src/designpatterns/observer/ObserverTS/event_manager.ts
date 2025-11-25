@@ -21,13 +21,14 @@ class EventManager {
     }
 
     unsubsribe(eventType: string, listener: EventListener) {
-        let users = this.listeners.get(eventType);
+        const users = this.listeners.get(eventType);
 
         if (!users) {
             return console.log('No such Event Type exists');
         }
 
-        users = users.filter(item => item == listener);
+        const filtered = users.filter(item => item != listener);
+        this.listeners.set(eventType, filtered);
     }
 
     notify(eventType: string, file: _File) {

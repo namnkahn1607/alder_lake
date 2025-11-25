@@ -9,8 +9,8 @@ class EmailNoti implements EventListener {
 
     update(eventType: string, file: _File) {
         console.log(
-            `Email to ${this.email}: Someone has performed ${eventType}
-            operation with the following file: ${file.getPath()}`
+            `Email to ${this.email}: Someone has performed ${eventType}` 
+            + ` operation with the following file: ${file.getPath()}`
         );
     }
 }
@@ -24,8 +24,8 @@ class LogOpen implements EventListener {
 
     update(eventType: string, file: _File) {
         console.log(
-            `Save to log ${this.log.getPath()}: Someone has performed
-            ${eventType} operation with the following file: ${file.getPath()}`
+            `Save to log ${this.log.getPath()}: Someone has performed ${eventType}` 
+            + ` operation with the following file: ${file.getPath()}`
         );
     }
 }
