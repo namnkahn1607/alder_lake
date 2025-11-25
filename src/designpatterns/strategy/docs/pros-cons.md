@@ -1,7 +1,6 @@
 ### Advantages
 ⚡ **Dynamic Altering**. Be able to switch algorithms at runtime.
-👀 **Seperation of Concern**. Isolate implementation details of the algorithm from the code that use it.
-
+👀 **Decoupling**. Isolate implementation details of the algorithm from the code that use it, making it easier to understand, test and debug independently.
 🌈 **Composition over Inheritance**. _Composition_ is way more flexible and less error-prone than _Inheritance_.
 🧩 **Open/Close Principle**. Introduce new _Strategy_ without breaking the Context.
 
