@@ -1,5 +1,5 @@
 /* advanced algorithms: A* Search */
-// shortest mincost path in Matrix
+// shortest min-cost path in Matrix
 import { MinPriorityQueue } from 'datastructures-js';
 
 class Astar {
@@ -29,6 +29,7 @@ class Astar {
             const [R, C, currG] = opened.dequeue()!;
             const currKey = `${R},${C}`;
 
+            // Already found a better path to current pos.
             if (currG > gCost.get(currKey)!)
                 continue;
 
@@ -48,6 +49,7 @@ class Astar {
 
                 const newG = currG + 1;
 
+                // Haven't computed OR find out a better path.
                 if (!gCost.has(neiKey) || newG < gCost.get(neiKey)!) {
                     gCost.set(neiKey, newG);
                     opened.enqueue([newR, newC, newG]);
