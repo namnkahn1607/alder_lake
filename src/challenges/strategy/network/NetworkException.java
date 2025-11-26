@@ -1,4 +1,4 @@
-package challenges.strategy.middleware;
+package challenges.strategy.network;
 
 public class NetworkException extends RuntimeException {
     

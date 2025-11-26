@@ -1,4 +1,4 @@
-package challenges.strategy.middleware;
+package challenges.strategy.network;
 
 /* CONCRETE STRATEGY */
 public class LinearBackoff implements RetryStrategy {

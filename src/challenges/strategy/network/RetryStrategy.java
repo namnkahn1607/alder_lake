@@ -1,4 +1,4 @@
-package challenges.strategy.middleware;
+package challenges.strategy.network;
 
 /* STRATEGY INTERFACE */
 public interface RetryStrategy {
