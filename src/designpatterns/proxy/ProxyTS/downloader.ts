@@ -1,4 +1,4 @@
-import { type ThirdParty } from './thirdparty.ts';
+import { type ThirdParty } from './third_party.ts';
 import { VideoService } from './video_service.ts';
 import { VideoCache } from './cache_proxy.ts';
 

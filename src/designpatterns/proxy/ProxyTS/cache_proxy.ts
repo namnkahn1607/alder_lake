@@ -1,4 +1,4 @@
-import { type ThirdParty, Video } from './thirdparty.ts';
+import { type ThirdParty, Video } from './third_party.ts';
 import { VideoService } from './video_service.ts';
 
 /* PROXY */

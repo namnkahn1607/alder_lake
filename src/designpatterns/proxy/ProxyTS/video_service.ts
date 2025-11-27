@@ -1,4 +1,4 @@
-import { Video, type ThirdParty } from './thirdparty.ts';
+import { Video, type ThirdParty } from './third_party.ts';
 
 /* REAL SERVICE */
 class VideoService implements ThirdParty {
