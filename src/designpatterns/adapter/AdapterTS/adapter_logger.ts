@@ -8,8 +8,12 @@ class LoggerAdapter implements JSONLogger {
     logMessage(message: string): void {
         this.legacyLogger.log(message);
     }
+    
+    // Client code
+    public static main(): void {
+        const logger: JSONLogger = new LoggerAdapter(new XMLLogger());
+        logger.logMessage('<message>hello</message>');
+    }
 }
 
-// Client code
-const logger: JSONLogger = new LoggerAdapter(new XMLLogger());
-logger.logMessage('<message>hello</message>');
+LoggerAdapter.main();
