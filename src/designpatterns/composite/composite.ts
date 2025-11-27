@@ -68,7 +68,7 @@ class Composite extends Component {
     }
 }
 
-// Client code
+/* Client code works with Composite Tree thru the Interface */
 const clientCode = (component: Component) => {
     console.log(`Result: ${component.operation()}`);
 };
@@ -96,6 +96,7 @@ clientCode(tree);
 
 console.log('');
 
+// A more complex client function 
 const clientCode2 = (component1: Component, component2: Component) => {
     if (component1.isComposite()) {
         component1.add(component2);
