@@ -1,3 +1,4 @@
+# Factory
 ### Advantages
 1️⃣ **Single Responsibility Principle**. Seperate the Product creation code into the subclasses, making it easier to maintain.
 🧩 **Open/Closed Principle**. Be able to introduce new Product without breaking the existing ones.

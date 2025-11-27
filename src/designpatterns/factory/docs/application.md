@@ -1,3 +1,4 @@
+# Factory
 ### Applicability
 🤔 **The _Factory_ pattern is useful when you don't know beforehand the exact types and dependencies of the objects that your code should work with.**
 
