@@ -1,15 +1,28 @@
-interface Subject {
+/** SERVICE INTERFACE
+ * declares the Interface of Service. The Proxy must follow
+ * this Interface to be disguise itself as a Service.
+ * - Client will interact with this Interface. 
+ */
+interface Service {
     request(): void;
 }
 
-class RealSubject implements Subject {
+/** REAL SERVICE (concrete)
+ * provides useful bussiness logic.
+ */
+class RealService implements Service {
     request(): void {
         console.log('[RealSubject] Handling request.');
     }
 }
 
-class Proxy implements Subject {
-    constructor(private realSubject: RealSubject) {}
+/** PROXY (concrete)
+ * has a reference to the Real Service. Proxy will do the
+ * pre-processing before passing the request to Real Service.
+ * - Oftenly, Proxy manages the life cycle of Real Service.
+ */
+class Proxy implements Service {
+    constructor(private realSubject: RealService) {}
 
     request(): void {
         if (this.checkAccess()) {
@@ -29,12 +42,12 @@ class Proxy implements Subject {
 }
 
 // Client code
-const clientCode = (subject: Subject) => {
+const clientCode = (subject: Service) => {
     subject.request();
 };
 
 console.log('[Client] Executing the Client code with a real Subject:');
-const realSubject = new RealSubject();
+const realSubject = new RealService();
 clientCode(realSubject);
 
 console.log('');
@@ -42,3 +55,10 @@ console.log('');
 console.log('[Client] Executing the same Client code with a Proxy:');
 const proxy = new Proxy(realSubject);
 clientCode(proxy);
+
+/** Insights/Considerations
+ * 1. Much like other Structural Patterns, Proxy wraps around the real
+ * Object a layer of abstraction:
+ * - Adapter talks about incomplicability and adaptation, Proxy talks
+ * about  
+ */
