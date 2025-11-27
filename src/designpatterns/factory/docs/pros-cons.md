@@ -6,3 +6,11 @@
 
 ### Drawbacks
 🧠 **Code Complexity**. Increase overall code complexity by adding layer(s) of abstraction.
+
+# Abstract Factory
+### Advantages
+All of _Factory_'s with:
+🧤 **Complicability**. Can be sure that Products from Factory are complicable with each other (distinct family can work through each family's Interface).
+
+### Drawbacks
+🧠 **Code Complexity**. The overall complexity can goes insane if overusing _Abstract Factory_ making maintainance a lot more troublesome.
