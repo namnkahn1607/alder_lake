@@ -19,7 +19,8 @@ class RealService implements Service {
 /** PROXY (concrete)
  * has a reference to the Real Service. Proxy will do the
  * pre-processing before passing the request to Real Service.
- * - Oftenly, Proxy manages the life cycle of Real Service.
+ * - Oftenly, Proxy manages the life cycle of Real Service &
+ * caching request results.
  */
 class Proxy implements Service {
     constructor(private realSubject: RealService) {}
