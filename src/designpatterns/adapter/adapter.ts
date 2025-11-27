@@ -1,5 +1,5 @@
 /** ADAPTEE (concrete)
- * needs adaptation to the Target.
+ * incomplicable object needs adaptation to the Target.
  */
 class Adaptee {
     specificRequest(): string {
@@ -8,8 +8,8 @@ class Adaptee {
 }
 
 /** TARGET (abstract/interface)
- * defines domain-specific interface used by
- * client code.
+ * defines domain-specific abstraction used by the
+ * Client code.
  */
 class Target {
     request(): string {
