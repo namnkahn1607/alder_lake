@@ -1,8 +1,11 @@
 class Video {
     constructor(
-        private videoID: string,
-        public title: string
+        private readonly videoID: string,
+        public readonly title: string
     ) {}
+
+    getVideoID(): string { return this.videoID };
+    getTitle(): string { return this.title; }
 }
 
 /* SERVICE INTERFACE */

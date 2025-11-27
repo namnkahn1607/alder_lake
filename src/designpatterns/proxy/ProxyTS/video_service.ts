@@ -1,5 +1,6 @@
 import { Video, type ThirdParty } from './thirdparty.ts';
 
+/* REAL SERVICE */
 class VideoService implements ThirdParty {
     popularVideos(): Map<string, Video> {
         this.connectToServer('https://www.youtube.com');

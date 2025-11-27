@@ -1,11 +1,14 @@
 import { type ThirdParty, Video } from './thirdparty.ts';
 import { VideoService } from './video_service.ts';
 
+/* PROXY */
 class VideoCache implements ThirdParty {
     private cachePopular = new Map<string, Video>();
     private cacheAll = new Map<string, Video>();
 
-    constructor(private service: VideoService) {}
+    constructor(
+        private service = new VideoService()
+    ) {}
     
     popularVideos(): Map<string, Video> {
         if (this.cachePopular.size == 0) {
@@ -38,3 +41,5 @@ class VideoCache implements ThirdParty {
         this.cacheAll.clear();
     }
 }
+
+export { VideoCache };
