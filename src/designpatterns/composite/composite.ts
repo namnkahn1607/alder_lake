@@ -34,7 +34,7 @@ class Leaf extends Component {
     }
 }
 
-/** COMPOSITE (concrete)
+/** CONTAINER (concrete)
  * often refers to elements in a Tree that is not a Leaf,
  * they have sub-elements (children) to further delegates
  * the same work down to.
