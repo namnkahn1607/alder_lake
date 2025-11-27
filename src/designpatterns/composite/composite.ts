@@ -1,3 +1,7 @@
+/** COMPONENT (abstract/interface)
+ * describe operations that are both common to simple
+ * and complex element of the Tree.
+ */
 abstract class Component {
     protected parent!: Component | null;
 
@@ -20,12 +24,21 @@ abstract class Component {
     }
 }
 
+/** LEAF (concrete)
+ * the lowest level element of a Tree that have no
+ * sub-elements (children).
+ */
 class Leaf extends Component {
     operation(): string {
         return 'Leaf';
     }
 }
 
+/** COMPOSITE (concrete)
+ * often refers to elements in a Tree that is not a Leaf,
+ * they have sub-elements (children) to further delegates
+ * the same work down to.
+ */
 class Composite extends Component {
     protected children = new Array<Component>();
 
@@ -73,7 +86,7 @@ branch1.add(new Leaf());
 branch1.add(new Leaf());
 
 const branch2 = new Composite();
-branch1.add(new Leaf());
+branch2.add(new Leaf());
 
 tree.add(branch1);
 tree.add(branch2);
@@ -96,3 +109,16 @@ console.log(
     + ' even when managing the tree:'
 );
 clientCode2(tree, simple);
+
+/** Insight/Considerations:
+ * 1. Composite pattern sees like world much as a Tree in DSA
+ * - Each node can be a root node of a Subtree.
+ * - Leaf nodes are considered no-children nodes.
+ * 
+ * 2. Containers (Composites) does not care about the concrete
+ * classes of their children, therefore, they work thru the
+ * Component Interface.
+ * 
+ * 3. The working stream of the Composite Tree is much like DFS
+ * down a Tree in DSA. 
+ */
