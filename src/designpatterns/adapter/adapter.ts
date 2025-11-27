@@ -18,8 +18,8 @@ class Target {
 }
 
 /** ADAPTER
- * must extends/implements Target; where the code
- * logic for adaptation is placed.
+ * must extends/implements Target; where the code logic
+ * for adaptation is placed.
  */
 class Adapter extends Target {
     constructor(private adaptee: Adaptee) {
