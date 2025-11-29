@@ -17,17 +17,13 @@ class Prim {
         const visited = new Array<boolean>(n)
             .fill(false);
         const minPQ = new MinPriorityQueue<number[]>(
-            item => item[0]
+            item => item[2], adj[0]
         );
-
-        for (const [nei, w] of adj[0]) {
-            minPQ.enqueue([w, 0, nei]);
-        }
 
         while (MST.length < n - 1) {
             if (minPQ.isEmpty()) return [];
 
-            const [_, src, v1] = minPQ.dequeue()!;
+            const [src, v1, _] = minPQ.dequeue()!;
 
             if (visited[v1]) continue;
 
@@ -35,7 +31,7 @@ class Prim {
             visited[v1] = true;
             
             for (const [v2, w2] of adj[v1]) {
-                if (visited[v2]) {
+                if (!visited[v2]) {
                     minPQ.enqueue([w2, v1, v2]);
                 }
             }
