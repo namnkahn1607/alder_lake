@@ -3,9 +3,9 @@
 import { Queue } from 'datastructures-js';
 
 class Kahn {
-    topologicalOrder(n: number, edges: number[][]): number[] {
-        const adj = Array.from({ length: n }, () => new Array<number>());
-        const indeg = new Array(n).fill(0);
+    topologicalOrder(V: number, edges: number[][]): number[] {
+        const adj = Array.from({ length: V }, () => new Array<number>());
+        const indeg = new Array(V).fill(0);
 
         for (const [u, v] of edges) {
             adj[u].push(v);
@@ -31,8 +31,9 @@ class Kahn {
             }
         }
 
-        if (order.length == n)
+        if (order.length == V) {
             return order;
+        }
 
         return [];
     }
@@ -41,3 +42,5 @@ class Kahn {
 }
 
 Kahn.main();
+
+export { Kahn };
