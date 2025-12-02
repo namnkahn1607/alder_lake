@@ -1,19 +1,18 @@
-/* algorithms: Topological Sort */
+/* algorithms: Topological Sort & Shortest Path */
 // topological order of a DAG
-
 class Topological {
-    topologicalSort(n: number, edges: number[][]): number[] {
+    topoOrder(V: number, edges: Array<Array<number>>): Array<number> {
         const adj = Array.from(
-            { length: n }, () => new Array<number>(n)
+            { length: V }, () => new Array<number>(V)
         );
 
         for (const [u, v] of edges) {
             adj[u].push(v);
         }
 
-        const order: number[] = [];
-        const onPath = new Array(n).fill(false);
-        const visited = new Array(n).fill(false);
+        const order = new Array<number>();
+        const onPath = new Array(V).fill(false);
+        const visited = new Array(V).fill(false);
 
         const dfs = (v: number): boolean => {
             onPath[v] = true;
@@ -31,7 +30,7 @@ class Topological {
             return true;
         };
 
-        for (let i = 0; i < n; ++i) {
+        for (let i = 0; i < V; ++i) {
             if (!visited[i] && !dfs(i)) return [];
         }
 
@@ -42,3 +41,5 @@ class Topological {
 }
 
 Topological.main();
+
+export { Topological };
