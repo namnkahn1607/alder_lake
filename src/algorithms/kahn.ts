@@ -3,7 +3,7 @@
 import { Queue } from 'datastructures-js';
 
 class Kahn {
-    topologicalOrder(V: number, edges: number[][]): number[] {
+    topoOrder(V: number, edges: number[][]): number[] {
         const adj = Array.from({ length: V }, () => new Array<number>());
         const indeg = new Array(V).fill(0);
 
@@ -12,7 +12,7 @@ class Kahn {
             ++indeg[v];
         }
 
-        const order: number[] = [];
+        const order = new Array<number>();
         const queue = new Queue<number>();
         indeg.forEach((deg, i) => {
             if (deg == 0) queue.push(i);
