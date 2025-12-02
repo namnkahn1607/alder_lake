@@ -14,7 +14,7 @@ class AcyclicLongestPath {
      */
     longestPath(V: number, edges: Array<Array<number>>): Array<number> {
         const adj = Array.from(
-            { length: V }, () => new Array<number[]>(V)
+            { length: V }, () => new Array<number[]>()
         );
 
         for (const [u, v, w] of edges) {
@@ -47,6 +47,10 @@ class AcyclicLongestPath {
         return distTo;
     }
 
+    /** Analysis of Complexity
+     * - Time: O(V + E) average, worst.
+     * - Space: O(V + E).
+     */
     public static main(): void {}
 }
 
