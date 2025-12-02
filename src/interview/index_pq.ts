@@ -1,34 +1,40 @@
 /* advanced ADT: Index Priority Queue */
 
 abstract class IndexPQ {
-    // 0-indexed Array - error-prone but promotes generic afterwards
-    protected pq: Array<number>;
+    protected pq: Array<number>; // heappos -> ID
+    protected qp: Array<number>; // ID -> heappos
+    protected keys: Array<number>; // ID -> priority value
 
     constructor(items: Array<number> = []) {
-        // Cloning - argument Array does not want to be a Heap
-        this.pq = structuredClone(items);
+        const N = items.length;
+        this.keys = structuredClone(items);
+        
+        // at this time, heappos == ID
+        this.pq = Array.from({ length: N }, (_, i) => i);
+        this.qp = Array.from({ length: N }, (_, i) => i);
+        
+        // correct the heap order
         this.heapify();
     }
 
     insert(val: number): void {
-        this.pq.push(val);
+        this.keys.push(val);
         this.swim(this.size() - 1);
     }
 
     remove(): number | undefined {
-        if (this.isEmpty()) {
-            return undefined;
-        }
+        if (this.isEmpty()) return;
 
-        if (this.size() == 1) {
-            return this.pq.pop();
-        }
+        const [pq, qp] = [this.pq, this.qp];
+        const keys = this.keys;
 
-        const ans = this.pq[0];
-        this.pq[0] = this.pq.pop()!;
-        this.sink(0);
+        // remove at heappos 0
+    }
 
-        return ans;
+    peek(): number | undefined {
+        if (this.isEmpty()) return;
+
+        return this.keys[this.pq[0]];
     }
 
     size(): number {
@@ -45,6 +51,24 @@ abstract class IndexPQ {
     // Shrink
     protected abstract sink(i: number): void;
 
+    protected greater(x: number, y: number): boolean {
+        const idX = this.pq[x];
+        const idY = this.pq[y];
+
+        return this.keys[idX] > this.keys[idY];
+    }
+
+    protected swap(x: number, y: number): void {
+        const [pq, qp] = [this.pq, this.qp];
+        
+        const temp = pq[x];
+        pq[x] = pq[y];
+        pq[y] = temp;
+
+        qp[pq[x]] = x;
+        qp[pq[y]] = y;
+    }
+
     /** Heapify
      * -> Use only for PQ construction from Array of N size.
      * - Efficient - O(N) compared to percolating/shrinking
@@ -52,7 +76,7 @@ abstract class IndexPQ {
      */
     private heapify(): void {
         const size = this.size() - 1;
-        const start = Math.floor((size - 1) / 2) - 1;
+        const start = Math.floor((size - 2) / 2);
 
         for (let i = start; i >= 0; --i) {
             this.sink(i);
