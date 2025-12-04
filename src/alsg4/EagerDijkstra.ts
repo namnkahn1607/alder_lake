@@ -1,4 +1,4 @@
-/* advanced algorithm: Optimized Dijkstra */
+/* algorithms: Eager Dijkstra */
 // a shortest path algorithm (Graph).
 import { IndexMinPQ } from './IndexMinPQ.ts';
 
