@@ -1,5 +1,5 @@
 /* algorithms: Acyclic Longest Path */
-// a longest path (shortest path co-variant) algorithm (Graph).
+// a longest path (shortest path co-variant) algorithm (Digraph).
 import { Kahn } from './kahn.ts';
 
 class AcyclicLongestPath {

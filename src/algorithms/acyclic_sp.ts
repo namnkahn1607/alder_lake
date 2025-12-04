@@ -1,5 +1,5 @@
 /* algorithms: Acyclic Shortest Path */
-// a shortest path algorithm (Graph).
+// a shortest path algorithm (Digraph).
 import { Topological } from './topological.ts';
 
 class AcyclicShortestPath {
