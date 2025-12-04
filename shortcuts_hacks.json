@@ -1,0 +1,51 @@
+{
+    "CLI": {
+        "Open current directory": "code .",
+        "Open specified file": "code somefile.ts"
+    },
+
+    "Vscode": {
+        "New window": "Ctrl Shift N",
+        "Close window": "Ctrl Shift W",
+
+        "New file (in current directory)": "Ctrl N",
+        "Close current file": "Ctrl + W"
+    },
+    
+    "Editor": {
+        "Go to codeline": "Ctrl G",
+        "Move codeline": "Alt UP/DOWN",
+        "Delete codeline": "Ctrl + X",
+        "Copy while moving codeline": "Alt Shift UP/DOWN",
+        "Go to beginning/end of codeline": "Home/End",
+        
+        "Rename Symbol": "F2",
+
+        "Comment hightlighted codelines": "Ctrl + /",
+
+        "Highlight char by char": "Shift LEFT/RIGHT",
+        "Highlight word by word": "Ctrl LEFT/RIGHT",
+        "Highlight line by line": "Ctrl L",
+        
+        "Go to beginning/end of File": "Ctrl + Home/End",
+        "Multiple Cursor": "Alt + CLICK"
+    },
+    
+    "Command Palette": {
+        "General open": "Ctrl P",
+        "Command (with '>' notation)": "Ctrl Shift P",
+        "Go to codeline": ":",
+        "Find Symbol in current File": "@",
+        "Find Symbol in entire Project": "#"
+    },
+    
+    "Terminal": {
+        "Open/Toggle": "Ctrl `"
+    },
+    
+    "Setting": {
+        "Open/Toggle": "Ctrl ,",
+        "Navigate around the command line": "Ctrl LEFT/RIGHT",
+        "Clear Terminal": "Ctrl K"
+    }
+}
