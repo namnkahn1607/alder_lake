@@ -1,6 +1,7 @@
 /* algorithms: Dijkstra */
 // a shortest path algorithm (Graph).
 import { MinPriorityQueue } from 'datastructures-js';
+import { EagerDijkstra } from '../alsg4/EagerDijkstra.ts';
 
 class Dijkstra {
     /** Dijkstra's shortestPath()
@@ -56,6 +57,7 @@ class Dijkstra {
      * - Time: O(E.logV) average/worst case.
      * - Space: O(V + E).
      * -> Due to lazy querying, the PQ can get 'bloated' quickly.
+     * -> For the optimized version, see {@link EagerDijkstra}
      */
     public static main(): void {}
 }
