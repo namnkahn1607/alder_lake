@@ -2,11 +2,12 @@
 
 /**
  * API methods (client's) works with ID.
- * Private helper methods works with heappos.
+ * Private helper methods works with heappos, except 
+ * for validateID(id).
  */
 class IndexMinPQ<Key> {
-    private maxN: number;
-    private n: number;
+    private maxN: number; // capacity
+    private n: number; // size
     private compareFn: (a: Key, b: Key) => number;
 
     // 1-indexed Arrays for the sake of simplicity.
@@ -75,7 +76,7 @@ class IndexMinPQ<Key> {
      * @param {number} id
      * @returns {Key}
      */
-    deleteKey(id: number): Key {
+    delKey(id: number): Key {
         this.validateID(id);
 
         if (!this.contains(id)) {
@@ -132,7 +133,7 @@ class IndexMinPQ<Key> {
         if (cmp >= 0) {
             throw new Error(
                 'Called to increaseKey() with a key less or equal than original one in PQ.'
-            )
+            );
         }
 
         this.keys[id] = key;
@@ -156,7 +157,7 @@ class IndexMinPQ<Key> {
         if (cmp <= 0) {
             throw new Error(
                 'Called to decreaseKey() with a key greater or equal than original one in PQ.'
-            )
+            );
         }
 
         this.keys[id] = key;
@@ -212,11 +213,19 @@ class IndexMinPQ<Key> {
         return this.qp[id] != -1;
     }
 
-    isEmpty() {
+    /**
+     * Check if the PQ is empty.
+     * @returns {boolean}
+     */
+    isEmpty(): boolean {
         return this.n == 0;
     }
 
-    size() {
+    /**
+     * Check PQ's current size.
+     * @returns {number}
+     */
+    size(): number {
         return this.n;
     }
 
@@ -279,6 +288,10 @@ class IndexMinPQ<Key> {
         this.qp[this.pq[j]] = j;
     }
 
+    /**
+     * Does ID validation (within range?).
+     * @param id 
+     */
     private validateID(id: number) {
         if (id < 0 || id >= this.maxN) {
             throw new Error('ID is out of bounds.');

@@ -5,9 +5,9 @@
  * Private helper methods works with heappos, except
  * for validateID(id).
  */
-class MaxPriorityQueue<Key> {
-    private maxN: number;
-    private n: number;
+class IndexMaxPQ<Key> {
+    private maxN: number; // capacity
+    private n: number; // size
     private compareFn: (a: Key, b: Key) => number;
 
     // 1-indexed Arrays for the sake of simplicity.
@@ -15,16 +15,16 @@ class MaxPriorityQueue<Key> {
     private qp: Array<number>; // ID -> heappos
     private keys: Array<Key | null>; // ID -> key
 
-    constructor(maxN: number, compareFn: (a: Key, b: Key) => number) {
+    constructor(maxN: number, compareFn?: (a: Key, b: Key) => number) {
         if (maxN < 0) {
             throw new Error('PQ\'s maximum capacity cannot be negative.');
         }
 
         this.maxN = maxN;
-        this.n = 0;
-        this.pq = new Array<number>(maxN);
-        this.qp = new Array(maxN).fill(-1);
-        this.keys = new Array<Key | null>(maxN);
+        this.n = 0; 
+        this.keys = new Array<Key | null>(maxN + 1);
+        this.pq = new Array<number>(maxN + 1);
+        this.qp = new Array(maxN + 1).fill(-1);
         
         this.compareFn = compareFn ?? ((a: Key, b: Key) => {
             if (a < b) return -1;
@@ -49,7 +49,7 @@ class MaxPriorityQueue<Key> {
         this.qp[id] = this.n;
         this.pq[this.n] = id;
         this.keys[id] = key;
-        this.sink(this.n);
+        this.swim(this.n);
     }
 
     /**
@@ -63,7 +63,7 @@ class MaxPriorityQueue<Key> {
 
         const maxID = this.pq[1];
         this.swap(1, this.n--);
-        this.swim(1);
+        this.sink(1);
         this.qp[maxID] = -1;
         this.keys[maxID] = null;
         this.pq[this.n + 1] = -1;
@@ -299,4 +299,4 @@ class MaxPriorityQueue<Key> {
     }
 }
 
-export { MaxPriorityQueue };
+export { IndexMaxPQ as MaxPriorityQueue };
