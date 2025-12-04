@@ -7,6 +7,7 @@
     "esModuleInterop": true,
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true,
+    
     /* Strictness */
     "strict": true,
     "verbatimModuleSyntax": true, /* Modern replacement for isolatedModules */
@@ -22,5 +23,6 @@
     "allowImportingTsExtensions": true,
     "noEmit": true
   },
+  
   "include": ["src/**/*"]
 }
