@@ -6,7 +6,7 @@ class Astar {
     /** A* Search shortestPath()
      * A shortest distance from the top left cell to the bottom right cell.
      * - Allow diagonal traverse ? Chebyshev : Manhattan.
-     * - Property: Source-sink.
+     * - Property: Source-sink, Lazy.
      * @param {Array<Array<number>>} mat 
      * @returns {number}
      */
